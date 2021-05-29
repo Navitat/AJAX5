@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--CSS-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel = "stylesheet" type = "text/css" href = "../css/custom.css">
+    <title>Activitat Final - AJAX</title>
+</head>
+
+<style>
+    .form-group p{
+        color: red;
+    }
+    /* width */
+    ::-webkit-scrollbar {
+    width: 10px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+    }
+    
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+    background: #888; 
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+    }
+
+    #admin_login{
+        display: none;
+    }
+    #treballador_login{
+        display: none;
+    }
+    #familiar_login{
+        display: none;
+    }
+</style>
+
+<body class="bg-secondary">
+
+<div id="wrapper">
+
+<!-- Sidebar -->
+<div id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+        <li class="sidebar-brand">
+            <a href="./index.html"><h1>Login</h1></a>
+        </li>
+        <!--<li>
+            <a href="./admin.html">Admin</a>
+        </li>
+        <li>
+            <a href="./treballador.html">Treballador</a>
+        </li>
+        <li>
+            <a href="./familiar.html">Familiar</a>
+        </li>-->
+    </ul>
+</div>
+<!-- /#sidebar-wrapper -->
+
+<!-- Page Content -->
+<div id="page-content-wrapper">
+    <button class="btn btn-primary" id="menu-toggle">Toggle Menu</button>
+    <div class="container-fluid">
+        <header class="container text-center p-4">
+            <h2>Bienvenido a Residencia Increible</h2>
+        </header>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div id="login" class="marco">
+                        <h3 class="text-center">Antes de nada, quien eres?</h3>
+                        <div class="row text-center">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-12 mt-3 mb-3">
+                                <button class="btn btn-info btn-lg" id="familiarBTN">Familiar</button>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-12 mt-3 mb-3">
+                                <button class="btn btn-warning btn-lg" id="adminBTN">Administrador</button>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-12 mt-3 mb-3">
+                                <button class="btn btn-secondary btn-lg" id="treballadorBTN">Treballador</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="admin_login" class="marco">
+                        <h3 class="text-center">Login Administrador</h3>
+                        <div class="container">
+                            <form action="">
+                                <div class="form-group">
+                                    <label for="nom">Nombre de usuario</label>
+                                    <input type="text" id="nom" name="nom" class="form-control" placeholder="nombre" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="pass">Contraseña</label>
+                                    <input type="text" id="pass" name="pass" class="form-control" placeholder="contraseña">
+                                </div>
+                                <div class="form-group text-center">
+                                    <input type="button" name="login_Admin" class="btn btn-primary" onclick="loginAdmin()" value="Iniciar sesion">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div id="familiar_login" class="marco">
+                        <h3 class="text-center">Login Familiar</h3>
+                        <div class="container">
+                            <form action="">
+                                <div class="form-group">
+                                    <label for="nom2">Nombre de usuario</label>
+                                    <input type="text" id="nom2" name="nom2" class="form-control" placeholder="nombre" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="pass2">Contraseña</label>
+                                    <input type="text" id="pass2" name="pass2" class="form-control" placeholder="contraseña">
+                                </div>
+                                <div class="form-group text-center">
+                                    <input type="button" name="login_Familiar" class="btn btn-primary" onclick="loginFamiliar()" value="Iniciar sesion">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div id="treballador_login" class="marco">
+                        <h3 class="text-center">Login Treballador</h3>
+                        <div class="container">
+                            <form action="">
+                                <div class="form-group">
+                                    <label for="nom3">Nombre de usuario</label>
+                                    <input type="text" id="nom3" name="nom3" class="form-control" placeholder="nombre" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="pass3">Contraseña</label>
+                                    <input type="text" id="pass3" name="pass3" class="form-control" placeholder="contraseña">
+                                </div>
+                                <div class="form-group text-center">
+                                    <input type="button" name="login_Treballador" class="btn btn-primary" onclick="loginTreballador()" value="Iniciar sesion">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+    </div>
+</div>
+
+
+<!-- /#page-content-wrapper -->
+
+</div>
+
+    <script src="../JS/login.js"></script>
+    <!--Scripts JQUERY + BOOTSTRAP 4-->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script>
+        $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+        });
+
+        //FORMS
+        //form familiar
+        $("#familiarBTN").click(function(){
+            $("#login").hide();
+            $("#familiar_login").show();
+        });
+
+        //form admin
+        $("#adminBTN").click(function(){
+            $("#login").hide();
+            $("#admin_login").show();
+        });
+        
+        //form treballador
+        $("#treballadorBTN").click(function(){
+            $("#login").hide();
+            $("#treballador_login").show();
+        });
+    </script>
+</body>
+</html>
